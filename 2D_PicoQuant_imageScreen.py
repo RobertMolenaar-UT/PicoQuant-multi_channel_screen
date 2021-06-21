@@ -41,6 +41,7 @@ ShowDefault=True                #Standard user visualizations
 
 #FRET settings     Set 'acceptor' and 'donor' in Config channels and timegates are extracted automatically
 FRET=False                      
+FRET_Mask_Threshold_value=3     #(mean(donor) + n * std(donor))
 if FRET ==True:
      Zstack=False
     
@@ -349,7 +350,7 @@ else:
 #File list now goes into a for loop cycling over the files.
 
 """ ################################################
-########         MAIN Proceesing loop       ########
+########         MAIN Proccessing loop       ########
 ################################################ """
 
 for path in path_select:
@@ -605,7 +606,7 @@ for path in path_select:
         
         Donor=CZ[Z_Slice,:,:,Donor_APD_Channel]+1
         Acceptor=CZ[Z_Slice,:,:,Acceptor_APD_Channel]+1
-        Threshold=np.mean(Donor)+3*np.std(Donor)
+        Threshold=np.mean(Donor)+FRET_Mask_Threshold_value*np.std(Donor)
         FRET_Ratio=Acceptor/(Acceptor+Donor)
         Mask=1*((Donor+Acceptor) >Threshold)
         

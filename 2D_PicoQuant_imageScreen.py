@@ -452,7 +452,7 @@ for path in path_select:
                  time.sleep(2)
                  continue
                 
-             #filling the  arrays for textfile save
+            #Filling the arrays for textfile save (actual saving = later)
              if  l.Channel==0:
                  Ch1=np.sum(flim_data_stack[:,:,0,int(Time_gate_edges[Tg,0]):int(Time_gate_edges[Tg,1])],axis = 2) 
              if  l.Channel==1 and Save_data_files==True:
@@ -467,19 +467,22 @@ for path in path_select:
     
     else:
         
+        #standard excitation
+        
         ColapsedLT=np.sum(flim_data_stack, axis = 3)
         Excitation='Normal Excitation: '+LaserInfo
         if  Save_data_files==True:
+            #Filling the arrays for textfile save (actual saving = later)
             Ch1=ColapsedLT[:,:,0]
             Ch2=ColapsedLT[:,:,1]
             Ch3=ColapsedLT[:,:,2]
             Ch4=ColapsedLT[:,:,3]
         #intensity_image=np.fliplr(intensity_image)
 
-        # extract the deteceted channels (ch_list) from the flim_data_stack and added them in RGB ColorStacs (CS)
-        # second add the intensE:\PicoQuant_Data\Mayke\20201119.sptw\Control_z-stack1E:\PicoQuant_Data\Mayke\20201119.sptw\Control_z-stack2ity from this Z-pane into the 3D stack (CZ) Z,X,Y,Ch which is raw intensity for the TimeGate
+        #Extract the deteceted channels (ch_list) from the flim_data_stack and added them in RGB ColorStacs (CS)
+        #Second add the intensity from this Z-pane into the 3D stack (CZ) Z,X,Y,Ch which is raw intensity for the TimeGate
         #Push intensity into a normalized [0,1] RGBimage 
-        #The detected channels are piut into RGB images stack [x,y,RGB,channels]
+        #The detected channels are put into RGB images stack [x,y,RGB,channels]
         
         i=0
         for l in ch_list:
@@ -718,7 +721,7 @@ for path in path_select:
     
     if Save_data_files==True:
         for i in ch_listst:
-            
+            # Datafiles are saved
             print('Saved datafile '+i)
             if i == 'Ch1':  
                 np.savetxt(d_name+'\\'+f_name+'_Ch1_'+Config1.Name+'.dat', Ch1, delimiter=',',fmt='%i')

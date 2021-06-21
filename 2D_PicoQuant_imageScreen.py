@@ -17,7 +17,7 @@ class Set_Channel_Info:
         
 
 #TimeGate in PulsedInterlievedExcitation (PIE) is set by PQ hardware, the it starts with the first Laser Model 0->1->2->3 so 640, 560,488 and 405 
-#                          Ch,  NameLabel,              Coloring, Gain, PIE TimeGate
+#                          Ch,  NameLabel,              Coloring, Gain, PIE TimeGate, FRET
 Config1 = Set_Channel_Info(1,   'Fibril 647N5'      ,   'Blue'      ,2      ,1 , '-')
 Config2 = Set_Channel_Info(2,   'Alexa488'          ,   'Green'     ,2      ,1 , '-'  )
 Config3 = Set_Channel_Info(3,   'Alexa568 aS42-85'  ,   'Red'       ,2      ,2 , 'acceptor')
@@ -949,40 +949,6 @@ if len(Errors) != 1  and len(path_select) >= 2:
         print(Err)
 elif len(Errors) == 1 and len(path_select) >= 2:
     print('All *.PTU files proccessed succesfully')     
-
-
-"""
-@author: MolenaarR
-
-
-Workflow 
-
-The user defines the used channels
-
-The user selects one or multiple files which are listed in 'path_select'
-a forloop is loping over all files.
-
-Each file is read by  ptu_file key: flim_data_stack, intensity_image = ptu_file.get_flim_data_stack()
-flim data stack conains all information.
-the file is screened for Automatically screenend for available channels from the photostream data.
-
-Now we know which dimension the color stack CS needs to be, [X,Y,chan,3] <=3 from RGB
-For a 3D stack ColorZaxis 'CZ' is expanded with [Z, X,Y,chan,3] <= Z by the number of files  .
-
-The FLIM data stack, the counts for the correct PIE time gate are summed.
- 
-
-
-
-
-
-
-
-
-
-
-
-"""
 
 
 

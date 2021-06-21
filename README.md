@@ -16,7 +16,7 @@ Each file is checked for
 - 'PIE'  or 'normal' excitation.
 
 You need to define the channels in the initial part of the code:
-#                   Ch,         NameLabel,        Coloring,   Gain,   PIE TimeGate, FRET
+                  Ch,         NameLabel,        Coloring,   Gain,   PIE TimeGate, FRET
 Config1 = Set_Channel_Info(1,   'Alexa647'      ,   'Red'      ,2      ,1 ,      'donor')
 Config2 = Set_Channel_Info(2,   'Alexa488'      ,   'Green'    ,2      ,2 ,      'acceptor')
 Config3 = Set_Channel_Info(3,   'DAPI-1         ,   'Blue'     ,2      ,3 ,       '-')

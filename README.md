@@ -38,7 +38,7 @@ SETUP configurations.
 
 1.  Change laser lines here in order of the SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405]
 2.  Set objectives full names in Symphotimetime64 or in the function *Read_objective()
-3.  PIE TAC ranges are auomatically calculated
+3.  PIE TAC ranges are automatically calculated.
 
 Known limitiation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.
 

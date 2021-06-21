@@ -46,6 +46,40 @@ Known limitation: For bi-directional scanning, the readPTU_flim needs to be modi
 
 
 
+-----------------------------------
+
+
+Workflow summary
+
+wx 'GUI_select_Multi_file' app prompts to select data files. 
+
+The main for loop proccesses all files sequentially
+
+1. The PTU file is loaded in "ptu_file  = PTUreader((path), print_header_data = False)"
+2. File is checked for 2D
+3. PTU file is converted "flim_data_stack, intensity_image = ptu_file.get_flim_data_stack()"
+4. FLIM stack is checked for avaialbe channels 'ch_list, ch_listst=Channels_list(flim_data_stack)'
+5. CS (ColorStack) is created and [ch,x,y,RGB] 
+6. CZ (Channel_Z) is created (Z slices, x,y,ch]
+7. Filling CZ and CS based on PIE  excitation.
+	- Calculate TimeGates
+	- CZ Extract from flim_dat_stack the corresponding Ch and PIE-timeGate the stack
+	- CS Extract from flim_dat_stack the corresponding Ch and PIE-timeGate the stack, and convert to colour plane by Fill_Colour()
+7. Filling CZ and CS based on Normal excitation.
+	- CZ Extract from flim_dat_stack the corresponding Ch and full TAC range the stack
+	- CS Extract from flim_dat_stack the corresponding Ch and full TAC range the stack, and convert to colour plane by Fill_Colour(). 
+
+8. Data files are saved
+9. Images are created according the number of avaialble channels
+10. Optional FRET 
+	- FRET donor TimeGate and channels are regognized.
+	- FRET efficiency is calculated per pixel.
+	- Images are made. caption information is extracted from the 'configX' avaialble from the 'ch_list'
+	- Mask intensity for FRET efficiency and histogram.
+11. Z stack image projection and Orthogonal planes are made.
+	- CZ contains [z, x,y,ch] 
+	- For the XY plane the 'mean'or 'max' value is used for the x,y pixel value for each color channel.
+
 
 
 

@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
+# author: Robert Molenaar email r.molenaar@utwente.nl
+# Release v1.0
+# Date 2021 June 21
+# To be used on PicoQuant PTU files
+# Function: Batchwise multichannel image conversion on Single files an Z stacks.
 
-#### Experimental INFO ####
 
 class Set_Channel_Info:
-    
-
-    
+        
     def __init__(self, Channel, Name, Color, Gain, PIE_TimeGate, FRET_attribute):
         self.Channel        = Channel-1
         self.ChannelName    = 'Ch'+str(Channel)
@@ -15,6 +17,7 @@ class Set_Channel_Info:
         self.TimeGate       = PIE_TimeGate-1
         self.FRET           = FRET_attribute
         
+"""##################  START of user input ###########"""
 
 #TimeGate in PulsedInterlievedExcitation (PIE) is set by PQ hardware, the it starts with the first Laser Model 0->1->2->3 so 640, 560,488 and 405 
 #                          Ch,  NameLabel,              Coloring, Gain, PIE TimeGate, FRET
@@ -53,11 +56,11 @@ SaveConvertedBin=False              #optional Saves the Binary converted CZ[z,x,
  
 if Plot_OrthogonalProjections==True and Zstack==True:   
     #plane and projections options for the orthogonal Projection
-    Plot_mean_Zplane_Intensity=True
+    Plot_mean_Zplane_Intensity=True #optional image to find brightes plane.
     Zplane_threshold=3          #intensity thresholding mean(Zplane)+[n]*stdev (ZPlane)) NOTE!1 set 0 to disable thresholding
     projection='max'            # choose 'max'or 'mean'
     Centerline='ON'
-    FlipZ=False   #Flip ortogonal Z plane in the Sub figures, bottom is bottom default use false
+    FlipZ=False             #Flip ortogonal Z plane in the Sub figures, bottom is bottom default use false
     GUI_MultiPick=True
     Vert_centerlineX=128    #Orthogonal projection of rows
     Hor_centerlineY=128     #Orthogonal projection of column
@@ -67,7 +70,7 @@ if Plot_OrthogonalProjections==True and Zstack==True:
     StripZ_top=0            #If the Z-Stack is to large, you can strip a few slices
 
 
-"""################## END of user  input ###########"""
+"""################## END of user input ###########"""
 
 from readPTU_FLIM import PTUreader
 import numpy as np

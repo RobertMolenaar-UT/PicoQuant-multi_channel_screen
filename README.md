@@ -41,7 +41,7 @@ SETUP configurations.
 3.  PIE TAC ranges are auomatically calculated
 
 
-Know limitiation: For bi-directional scanning, the readPTU_flim needs to be modified. 
+Known limitiation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.
 
 
 

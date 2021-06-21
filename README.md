@@ -49,8 +49,8 @@ Known limitation: For bi-directional scanning, the readPTU_flim needs to be modi
 -----------------------------------
 
 
-Workflow summary
-
+# Workflow summary
+ 
 wx 'GUI_select_Multi_file' app prompts to select data files. 
 
 The main for loop proccesses all files sequentially

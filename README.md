@@ -40,7 +40,7 @@ SETUP configurations.
 2.  Set objectives full names in Symphotimetime64 or in the function *Read_objective()
 3.  PIE TAC ranges are automatically calculated.
 
-Known limitiation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.
+Known limitation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.
 
 
 

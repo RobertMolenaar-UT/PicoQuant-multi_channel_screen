@@ -28,8 +28,9 @@ You need to define the channels in the initial part of the code:
 1.  Each channel is normalized from 0:1 and added into a RGB color image.
 2.  Availabe colors: 'Red', 'Green', 'YGreen' , 'Blue', 'Magenta', 'Cyan', 'Orange','Yellow'
 3.  Picoquant PIE TimeGates LASER fireing order is from the longst wavelenght to the shortest. 
-4.  Optionan assign FRET 'donor', and 'acceptor' channels Set *FRET =TRUE*
-5.  Zstack image projection can be made of the selected Z stack files. *Zstack=True* and *Plot_OrthogonalProjections=True*
+4.  Optionan assign FRET 'donor', and 'acceptor' channels Set *FRET =True*
+5.  Zstack image projection can be made of the selected Z stack files. Set *Zstack=True* and *Plot_OrthogonalProjections=True*
+6.  Image Intensity [counts] data is saved in .dat (comma seperated file) Set *Save data files = True
 
 
 

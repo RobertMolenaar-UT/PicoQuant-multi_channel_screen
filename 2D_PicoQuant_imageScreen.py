@@ -18,15 +18,15 @@ class Set_Channel_Info:
 
 #TimeGate in PulsedInterlievedExcitation (PIE) is set by PQ hardware, the it starts with the first Laser Model 0->1->2->3 so 640, 560,488 and 405 
 #                          Ch,  NameLabel,              Coloring, Gain, PIE TimeGate, FRET
-Config1 = Set_Channel_Info(1,   'Fibril 647N5'      ,   'Blue'      ,2      ,1 , '-')
-Config2 = Set_Channel_Info(2,   'Alexa488'          ,   'Green'     ,2      ,1 , '-'  )
-Config3 = Set_Channel_Info(3,   'Alexa568 aS42-85'  ,   'Red'       ,2      ,2 , 'acceptor')
-Config4 = Set_Channel_Info(4,   'Alexa488 aS42-85'  ,   'Green'     ,2      ,3 , 'donor')
+Config1 = Set_Channel_Info(1,   'Alexa 647'    ,   'Red'      ,2      ,1 , '-')
+Config2 = Set_Channel_Info(2,   'Alexa488'     ,   'Green'    ,2      ,1 , '-'  )
+Config3 = Set_Channel_Info(3,   'Dapi-1     '  ,   'Blue'     ,2      ,2 , 'acceptor')
+Config4 = Set_Channel_Info(4,   'Dapi-2'       ,   'Blue'     ,2      ,3 , 'donor')
 
 #File picking
-GUI_MultiPick=True    #Set Flase to proccess the full folder
-Zstack=True           #unlocks the 3D stack options
-Default_prompt= r'E:\PicoQuant_Data'
+GUI_MultiPick=True      #Pick multiple files - Set Flase to proccess the full folder
+Zstack=True             #unlocks the 3D stack options
+Default_prompt= r'D:\'  
 
 #Miscellaneous.
 Save_data_files=True            #Write CSV data files with intensity of all channels 8.dat
@@ -69,9 +69,6 @@ if Plot_OrthogonalProjections==True and Zstack==True:
 
 """################## END of user  input ###########"""
 
-#import warnings
-#warnings.filterwarnings("ignore", category=DeprecationWarning)
-#from ReadPTU_FLIM_Rm import PTUreader
 from readPTU_FLIM import PTUreader
 import numpy as np
 from ctypes import wintypes, windll

@@ -8,7 +8,7 @@ https://github.com/RobertMolenaar-UT/readPTU_FLIM
 install wx python for file selector app.
 
 Main purpose of the script is one can proccess a batch or folder of PTU files and get a series fluorescent multicolor images with minimal user input.
-Tested system is Picoquant MT200 with FLIMBEE and 4ch multiharp 150.
+Tested system : Picoquant MT200 with FLIMBEE with 4x SPAD and a multiharp 150.
 
 
 Each PTU file is checked for
@@ -33,6 +33,11 @@ You need to define the channels in the initial part of the code:
 
 
 
+SETUP configurations.
+
+1.  Change laser lines here in order of SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405]
+2.  Set Full objective in Symphotimetime64 or in the function *Read_objective()
+3.  PIE TAC ranges are auomatically calculated
 
 
 

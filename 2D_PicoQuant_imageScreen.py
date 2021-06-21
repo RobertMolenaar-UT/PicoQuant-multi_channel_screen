@@ -32,10 +32,10 @@ Zstack=True             #unlocks the 3D stack options
 Default_prompt= r'D:\'  
 
 #Miscellaneous.
-Save_data_files=True            #Write CSV data files with intensity of all channels 8.dat
+Save_data_files=True            #Write CSV data files with intensity of all channels *.dat
 show_gain_on_Images=True        #Shows the gain in the image
 shortEndPIEtac=0                #cut a piece from the start TAC ns to supress noise
-shortFrontPIEtac=0              #cut a piece from the start TAC ns to surpess noise
+shortFrontPIEtac=0              #cut a piece from the start TAC ns to supress noise
 PieAutoColor=False              #In PIE mode overwrite colour settings of the channel PIE laser x TimeGate give knowledge of correct color
 ShowDefault=True                #Standard user visualizations
 
@@ -86,7 +86,7 @@ import time
 np.set_printoptions(precision=3)
 np.set_printoptions(suppress=False)
 
-SEPIA_laser_lines=[638,560,488,405]      # Set avaialble lasers lines at the SEPIA slot 0,1,2,3
+SEPIA_laser_lines=[638,560,485,401]      # Set avaialble lasers lines at the SEPIA slot 0,1,2,3
 plt.style.use('seaborn-dark')     #  seaborn-dark  https://matplotlib.org/3.1.1/gallery/style_sheets/style_sheets_reference.html
 
 
@@ -238,7 +238,7 @@ def Read_SEPIA_laser_lines():
     return out,info,Colour_out
 
 def Read_objective():
-    """ Extracts the objective setting in symphotime.
+    """ Extracts the objective setting from symphotime64.
     Here you can add the full `name of the lens set in the microscop
     Set your objectives
     If objectives have been defined in Symphotime64 configuration these specific names is passed
@@ -374,7 +374,7 @@ for path in path_select:
     #d_name=d_name+'\Python_converted\\'*f_name
     os.makedirs(d_name,exist_ok=True)
     
-    #convert FIFO data into a histogram 4D x,y,channel, hsitodata, returns 4d datastack and intnsity image
+    #convert FIFO data into a histogram 4D x,y,channel, hsitodata, returns 4d datastack and intensity image
     # make a channel list
     
     try:
@@ -386,27 +386,25 @@ for path in path_select:
         continue
     
     try:
-        # SCREEN for avaialbe Channels
+        # SCREEN for available Channels
         ch_list, ch_listst=Channels_list(flim_data_stack)
     except:
         Errors=np.append(Errors,path)
         print('WARNING: File-ERROR: in Channel auto-detect')
         continue
     
-    
     #extra info
     LaserLines, LaserInfo, ch_color=Read_SEPIA_laser_lines()    
     Objective=Read_objective()
     
-    
-    #Init a color array 
+    #Init a colour array 
     CS=np.zeros((ptu_file.head["ImgHdr_PixX"],ptu_file.head["ImgHdr_PixY"],3,len(ch_list)))
     #converts TCSPC into intensity, the importred data is flipped compared with symphotime64, for convievence it is fliplr()
     if Z_Slice==0:
         #make a 3D stack array and read Z positions
         CZ=np.zeros((len(path_select),ptu_file.head["ImgHdr_PixX"],ptu_file.head["ImgHdr_PixY"],len(ch_list)))
         Z_section=np.zeros(len(path_select))
-    #array with Z,X,Y,channel,collapedlifetime=intensity #nocolor image only make in the first itteration
+    #array with Z,X,Y,channel,collapsedlifetime=intensity #nocolor image only make in the first itteration
     Z_section[Z_Slice]=ptu_file.head['ImgHdr_Z0'] #read Zposition from the header file
     
     if ptu_file.head['UsrPulseCfg'] == 'PIE':
@@ -429,7 +427,7 @@ for path in path_select:
             print(j*ptu_file.head['MeasDesc_Resolution']*1E9)
                 
         #Push intensity into a normalized [0,1] RGBimage 
-        #The detected channels are piut into RGB images stack [x,y,RGB,channels]
+        #The detected channels are put into RGB images stack [x,y,RGB,channels]
         #CS=[len(ch_list)] #channel stack
         i=0
         for l in ch_list:
@@ -480,7 +478,7 @@ for path in path_select:
             Ch4=ColapsedLT[:,:,3]
         #intensity_image=np.fliplr(intensity_image)
 
-        #Extract the deteceted channels (ch_list) from the flim_data_stack and added them in RGB ColorStacs (CS)
+        #Extract the detected channels (ch_list) from the flim_data_stack and added them in RGB ColorStacks (CS)
         #Second add the intensity from this Z-pane into the 3D stack (CZ) Z,X,Y,Ch which is raw intensity for the TimeGate
         #Push intensity into a normalized [0,1] RGBimage 
         #The detected channels are put into RGB images stack [x,y,RGB,channels]

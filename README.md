@@ -61,11 +61,11 @@ The main for loop proccesses all files sequentially
 4. FLIM stack is checked for avaialbe channels 'ch_list, ch_listst=Channels_list(flim_data_stack)'
 5. CS (ColorStack) is created and [ch,x,y,RGB] 
 6. CZ (Channel_Z) is created (Z slices, x,y,ch]
-7. Filling CZ and CS based on PIE  excitation.
+7A. Filling CZ and CS based on PIE excitation out of the flim_data_stack
 	- Calculate TimeGates
 	- CZ Extract from flim_dat_stack the corresponding Ch and PIE-timeGate the stack
 	- CS Extract from flim_dat_stack the corresponding Ch and PIE-timeGate the stack, and convert to colour plane by Fill_Colour()
-7. Filling CZ and CS based on Normal excitation.
+7B. Filling CZ and CS based on Normal excitation out of the flim_data_stack
 	- CZ Extract from flim_dat_stack the corresponding Ch and full TAC range the stack
 	- CS Extract from flim_dat_stack the corresponding Ch and full TAC range the stack, and convert to colour plane by Fill_Colour(). 
 

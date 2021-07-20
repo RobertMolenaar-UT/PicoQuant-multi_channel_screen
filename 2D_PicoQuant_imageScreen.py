@@ -95,7 +95,7 @@ def GUI_select_Multi_file(message):
         It starts at the current working directory of the process
     """
     wildcard = "picoquant PTU (*.ptu)| *.ptu"
-    app = wx.App()
+    app = wx.App(clearSigInt=False)
     frame = wx.Frame(None, -1, 'win.py', style=wx.STAY_ON_TOP)
     frame.SetSize(0,0,200,50)
     FilePicker = wx.FileDialog(frame, "Select you PTU files | single or Multiple", defaultDir=Default_prompt, wildcard=wildcard, style=wx.FD_OPEN | wx.FD_MULTIPLE | wx.FD_FILE_MUST_EXIST)
@@ -109,7 +109,7 @@ def GUI_select_folder(message):
         It starts at the current working directory of the process
     """
     wildcard = "picoquant PTU (*.ptu)| *.ptu"
-    app = wx.App()
+    app = wx.App(clearSigInt=False)
     path = wx.FileSelector(message='Select you the folder', default_path=Default_prompt, default_extension='*.ptu', wildcard=wildcard)
     directory,filename=os.path.split(path)
     app.Destroy()

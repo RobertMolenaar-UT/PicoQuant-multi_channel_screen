@@ -41,7 +41,7 @@ You do need to define the channels in the initial part of the code:
 7. Save Image Intensity [count] as comma separated file *.dat*  Set Save data files = True
 8. PIE TAC ranges are automatically calculated from the *.PTU* header data.
 
-Your MT200 SETUP:
+# Your MT200 SETUP:
 
 1.  Change laser lines here in order of the SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405] rack position [2,3,4,5]
 2.  Set objective name in Symphotimetime64 or in the function *Read_objective()

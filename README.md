@@ -5,44 +5,47 @@ This script can generate multicolour images in an automized way.
 The PTU conversion is done by
 
 https://github.com/RobertMolenaar-UT/readPTU_FLIM
-install wx python for file selector app.
 
-Main purpose of the script is one can proccess a batch or folder of PTU files and get a series fluorescent multicolor images with minimal user input.
-Tested system : Picoquant MT200 with FLIMBEE with 4x SPAD and a multiharp 150.
+Install wx python 4.0.4 for the file selector app.
+Developed and tested on Python 3.7.9
+Script is deleoped with a Picoquant MT200 with FLIMBEE with 4x SPAD and a multiharp 150.
 
+the main purpose of the MultiChannel script is that one can proccess a multiple PTU files or folder with PTU files and get a series Fluorescent multicolor images with minimal user input.
 
-Each PTU file is checked for
+Each single PTU file analysed on:  
 - if it is a 2D  image.
-- Autodetect # APD channels 
-- Supports 'PIE'  or 'normal' excitation
-- Features Zstack image projection and FRET efficiency
-- Common errors are catched and listed in the end.
+- Autodetects the number of APD channels. 
+- Supports 'PIE' and 'normal' excitation.
+- Features Zstack image projection and FRET efficiency.
+- Common exp file-errors are catched and reported in the end.
+- Output images are stored in a seperate folder.
 
-You need to define the channels in the initial part of the code:
+You do need to define the channels in the initial part of the code:
+
                   Ch,         NameLabel,        Coloring,   Gain,  PIE TimeGate, FRET
 - Config1 = Set_Channel_Info(1, 'Alexa647'  	,   'Red'      ,2        ,1 ,      'donor')
 - Config2 = Set_Channel_Info(2, 'Alexa488'    ,   'Green'    ,2        ,2 ,      'acceptor')
 - Config3 = Set_Channel_Info(3,   'DAPI-1     ,   'Blue'     ,2        ,3 ,       '-')
 - Config4 = Set_Channel_Info(4,   'DAPI-2'    ,   'Blue'     ,2        ,3 ,       '-')
 
-1.  Each channel is normalized from 0:1 and added into a RGB color image.
-2.  Availabe colors: 'Red', 'Green', 'YGreen' , 'Blue', 'Magenta', 'Cyan', 'Orange','Yellow'
-3.  Picoquant PIE TimeGate LASER fireing order is from the longst wavelenght first to the shortest last
-4.  Optional assign FRET 'donor', and 'acceptor' channels and enable *FRET =True*
-5.  Zstack image projection can be made of the selected Z stack files. Set *Zstack=True* and *Plot_OrthogonalProjections=True*
-6.  Image Intensity [counts] data is saved in .dat (comma separated) Set *Save data files = True
+in this configuration class
+1. Namelabel: username of colouring or dye.
+2. Coloring: available colors are 'Red', 'Green', 'YGreen' , 'Blue', 'Magenta', 'Cyan', 'Orange','Yellow'
+3. Gain: each channel is normalized from [0:1] to the max brightness in the image, use gain value to increase the brightness
+4. PIE TimeGate: Contrast can be enhanced by using PIE excitation in the experiment to supress any cross-excitation 
+	NOTE: LASER fireing order is the longseste wavelenght first towards the shortest wavelenght as last.
+5. if applicable assign FRET 'donor', and 'acceptor' channels and enable *FRET =True*
 
+6. Zstack image projection can be made of the selected Z stack files. Set *Zstack=True* and *Plot_OrthogonalProjections=True*
+7. Image Intensity [counts] data is saved in .dat (comma separated) Set *Save data files = True
+8. PIE TAC ranges are automatically calculated from the *.PTU header.
 
-
-SETUP configurations.
+Your MT200 SETUP:
 
 1.  Change laser lines here in order of the SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405]
 2.  Set objectives full names in Symphotimetime64 or in the function *Read_objective()
-3.  PIE TAC ranges are automatically calculated.
 
 Known limitation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.
-
-
 
 
 
@@ -51,18 +54,18 @@ Known limitation: For bi-directional scanning, the readPTU_flim needs to be modi
 
 # Workflow summary
  
-wx 'GUI_select_Multi_file' app prompts to select data files. 
+wx 'GUI_select_Multi_file' app prompts to select (multiple) data files. 
 
-The main for loop proccesses all files sequentially
+The main For-loop proccesses all files sequentially.
 
-1. The PTU file is loaded in "ptu_file  = PTUreader((path), print_header_data = False)"
-2. File is checked for 2D
-3. PTU file is converted "flim_data_stack, intensity_image = ptu_file.get_flim_data_stack()"
+1. The PTU file is read by "ptu_file  = PTUreader((path), print_header_data = False)"
+2. File is checked if it's a 2D image file:
+3. The PTU file is converted "flim_data_stack, intensity_image = ptu_file.get_flim_data_stack()"
 4. FLIM stack is checked for avaialbe channels 'ch_list, ch_listst=Channels_list(flim_data_stack)'
-5. CS (ColorStack) is created and [ch,x,y,RGB] 
-6. CZ (Channel_Z) is created (Z slices, x,y,ch]
+5. first a CS (ColorStack) is created and [ch,x,y,RGB] 
+6. second a CZ (Channel_Z) is created (Z slices, x,y,ch]
 7A. Filling CZ and CS based on PIE excitation out of the flim_data_stack
-	- Calculate TimeGates
+	- Calculate the TimeGates
 	- CZ Extract from flim_dat_stack the corresponding Ch and PIE-timeGate the stack
 	- CS Extract from flim_dat_stack the corresponding Ch and PIE-timeGate the stack, and convert to colour plane by Fill_Colour()
 7B. Filling CZ and CS based on Normal excitation out of the flim_data_stack
@@ -79,8 +82,6 @@ The main for loop proccesses all files sequentially
 11. Z stack image projection and Orthogonal planes are made.
 	- CZ contains [z, x,y,ch] 
 	- For the XY plane the 'mean'or 'max' value is used for the x,y pixel value for each color channel.
-
-
 
 
 

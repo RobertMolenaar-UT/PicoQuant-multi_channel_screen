@@ -43,8 +43,8 @@ You do need to define the channels in the initial part of the code:
 
 # Your MT200 SETUP:
 
-1.  Change laser lines here in order of the SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405] rack position [2,3,4,5]
-2.  Set objective name in Symphotimetime64 or in the function *Read_objective()
+1.  Change laser lines here in order of the SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405]*. If lasers are in installed in different SEPIAII rack positions assign these in *def Read_laserLines()*  atribute=[200,300,400,500]  #names of the lasers modules in ptu headerfile of rack position [2,3,4,5] 	
+2.  Set the objective name in Symphotimetime64 application or in the function *Read_objective()
 
 # Usage: 
 

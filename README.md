@@ -29,7 +29,7 @@ You do need to define the channels in the initial part of the code:
 		  Config4 = Set_Channel_Info(4,   'DAPI-2'    ,   'Blue'     ,2        ,3 ,       '-')
 		  
 
-1. *Namelabel*: name of the used colouring or dye.
+1. *Namelabel*: name of the used coloring or dye.
 2. *Coloring*: 	available colors are 'Red', 'Green', 'YGreen' , 'Blue', 'Magenta', 'Cyan', 'Orange','Yellow'
 3. *Gain*: 	each channel is normalized from [0:1] to the max brightness in the image, use gain value to increase the brightness
 4. *PIE TimeGate*: Contrast can be enhanced by using PIE excitation in the experiment to supress any cross-excitation 

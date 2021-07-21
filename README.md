@@ -51,8 +51,8 @@ You do need to define the channels in the initial part of the code:
 2. Read and set all options in the section --- USER input---  upon description.
 3. Run the PiqoQuant-multi_channel_screen.py.
 4. Note the pop-up window in the taskbar and browse and select the PTU files.
-5. Images are shown in the command line
-6. images and data files are saved in folder /Python_converted_* Username* /
+5. PTU files are proccessed, and images are shown in the command line. (large PTU files can take some time to proccess)
+6. Images and data files are saved in folder /Python_converted_* Username* /
 7. Errors on files are listed in the end, in many cases these are Single Point or cancelled 2D measurements.
 
 Known limitation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.

@@ -48,7 +48,7 @@ You do need to define the channels in the initial part of the code:
 # Usage: 
 
 1. Set the Configuration files according optical setup.
-2. Read and set all options upon description.
+2. Read and set all options in the section --- USER input---  upon description.
 3. Run the PiqoQuant-multi_channel_screen.py.
 4. Note the pop-up window in the taskbar and browse and select the PTU files.
 5. Images are shown in the command line

@@ -47,12 +47,13 @@ You do need to define the channels in the initial part of the code:
 
 # Usage: 
 
-Set the Configuration files according optical setup.
-Run the PiqoQuant-multi_channel_screen.py.
-Note the pop-up window in the taskbar and browse and select the PTU files.
-Images are shown in the command line
-images and data are saved in folder /Python_converted_* Username* /
-Errors on files are listed in the end, in many cases these are Single Point or cancelled 2D measurements.
+1. Set the Configuration files according optical setup.
+2. Read and set all options upon description.
+3. Run the PiqoQuant-multi_channel_screen.py.
+4. Note the pop-up window in the taskbar and browse and select the PTU files.
+5. Images are shown in the command line
+6. images and data files are saved in folder /Python_converted_* Username* /
+7. Errors on files are listed in the end, in many cases these are Single Point or cancelled 2D measurements.
 
 Known limitation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.
 

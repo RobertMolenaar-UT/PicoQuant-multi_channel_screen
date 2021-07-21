@@ -30,7 +30,7 @@ You do need to define the channels in the initial part of the code:
 		  Config4 = Set_Channel_Info(4,   'DAPI-2'    ,   'Blue'     ,2        ,3 ,       '-')
 		  
 
-1. *Namelabel*: name of the colouring or dye.
+1. *Namelabel*: name of the used colouring or dye.
 2. *Coloring*: 	available colors are 'Red', 'Green', 'YGreen' , 'Blue', 'Magenta', 'Cyan', 'Orange','Yellow'
 3. *Gain*: 	each channel is normalized from [0:1] to the max brightness in the image, use gain value to increase the brightness
 4. *PIE TimeGate*: Contrast can be enhanced by using PIE excitation in the experiment to supress any cross-excitation 
@@ -38,15 +38,27 @@ You do need to define the channels in the initial part of the code:
 5. if applicable assign FRET 'donor', and 'acceptor' channels and enable *FRET =True*
 
 6. Zstack image projection can be made of the selected Z stack files. Set *Zstack=True* and *Plot_OrthogonalProjections=True*
-7. Image Intensity [counts] data is saved in .dat (comma separated) Set *Save data files = True
-8. PIE TAC ranges are automatically calculated from the *.PTU header.
+7. Save Image Intensity [count] as comma separated file *.dat*  Set Save data files = True
+8. PIE TAC ranges are automatically calculated from the *.PTU* header data.
 
 Your MT200 SETUP:
 
-1.  Change laser lines here in order of the SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405]
-2.  Set objectives full names in Symphotimetime64 or in the function *Read_objective()
+1.  Change laser lines here in order of the SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405] rack position [2,3,4,5]
+2.  Set objective name in Symphotimetime64 or in the function *Read_objective()
+
+Usage: 
+
+Set the Configuration files according optical setup.
+Run the PiqoQuant-multi_channel_screen.py.
+Note the pop-up window in the taskbar and browse and select the PTU files.
+Images are shown in the command line
+images and data are saved in folder /Python_converted_* Username* /
+Errors on files are listed in the end, in many cases these are Single Point or cancelled 2D measurements.
 
 Known limitation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.
+
+
+
 
 
 

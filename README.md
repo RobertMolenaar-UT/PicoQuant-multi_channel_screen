@@ -22,18 +22,19 @@ Each single PTU file analysed on:
 
 You do need to define the channels in the initial part of the code:
 
-                  Ch,         NameLabel,        Coloring,   Gain,  PIE TimeGate, FRET
-- Config1 = Set_Channel_Info(1, 'Alexa647'  	,   'Red'      ,2        ,1 ,      'donor')
-- Config2 = Set_Channel_Info(2, 'Alexa488'    ,   'Green'    ,2        ,2 ,      'acceptor')
-- Config3 = Set_Channel_Info(3,   'DAPI-1     ,   'Blue'     ,2        ,3 ,       '-')
-- Config4 = Set_Channel_Info(4,   'DAPI-2'    ,   'Blue'     ,2        ,3 ,       '-')
+                  -                      Ch,   NameLabel,   Coloring,    Gain,  PIE TimeGate,  FRET
+		  
+		  Config1 = Set_Channel_Info(1, 'Alexa647'    ,   'Red'      ,2        ,1 ,      'donor')
+		  Config2 = Set_Channel_Info(2, 'Alexa488'    ,   'Green'    ,2        ,2 ,      'acceptor')
+		  Config3 = Set_Channel_Info(3,   'DAPI-1     ,   'Blue'     ,2        ,3 ,       '-')
+		  Config4 = Set_Channel_Info(4,   'DAPI-2'    ,   'Blue'     ,2        ,3 ,       '-')
+		  
 
-in this configuration class
-1. Namelabel: username of colouring or dye.
-2. Coloring: available colors are 'Red', 'Green', 'YGreen' , 'Blue', 'Magenta', 'Cyan', 'Orange','Yellow'
-3. Gain: each channel is normalized from [0:1] to the max brightness in the image, use gain value to increase the brightness
-4. PIE TimeGate: Contrast can be enhanced by using PIE excitation in the experiment to supress any cross-excitation 
-	NOTE: LASER fireing order is the longseste wavelenght first towards the shortest wavelenght as last.
+1. *Namelabel*: name of the colouring or dye.
+2. *Coloring*: 	available colors are 'Red', 'Green', 'YGreen' , 'Blue', 'Magenta', 'Cyan', 'Orange','Yellow'
+3. *Gain*: 	each channel is normalized from [0:1] to the max brightness in the image, use gain value to increase the brightness
+4. *PIE TimeGate*: Contrast can be enhanced by using PIE excitation in the experiment to supress any cross-excitation 
+	- NOTE: LASER fire order is first the longest wavelenght down to shortest wavelenght as last.
 5. if applicable assign FRET 'donor', and 'acceptor' channels and enable *FRET =True*
 
 6. Zstack image projection can be made of the selected Z stack files. Set *Zstack=True* and *Plot_OrthogonalProjections=True*

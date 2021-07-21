@@ -6,11 +6,10 @@ The PTU conversion is done by
 
 https://github.com/RobertMolenaar-UT/readPTU_FLIM
 
-Install wx python 4.0.4 for the file selector app.
-Developed and tested on Python 3.7.9
-Script is deleoped with a Picoquant MT200 with FLIMBEE with 4x SPAD and a multiharp 150.
+Developed and tested on Python 3.7.9, Install wx python 4.0.4 for the file selector app.
+Script is used on a Picoquant MT200 with FLIMBEE laserscanner with 4x SPAD detectors and a multiharp 150.
 
-the main purpose of the MultiChannel script is that one can proccess a multiple PTU files or folder with PTU files and get a series Fluorescent multicolor images with minimal user input.
+the main purpose of the MultiChannel script is one can proccess multiple PTU files or a folder with PTU files and get a series Fluorescent multicolor images with minimal user input. Usefull for screening results during imaging and to be used in presentations.
 
 Each single PTU file analysed on:  
 - if it is a 2D  image.

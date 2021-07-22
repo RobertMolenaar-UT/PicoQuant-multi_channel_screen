@@ -1,25 +1,29 @@
 # PicoQuant-multi channel screen
-Batch proccessing, that converts PiqoQuant PTU into fluorescent image
+Batch proccessing that converts PiqoQuant PTU files into fluorescent multicolour images.
 
-This script can generate multicolour images in an automized way.
-The PTU conversion is done by
+![alt text](https://github.com/RobertMolenaar-UT/PicoQuant-multi_channel_screen/blob/main/Example_2D_image_1024.png?raw=true)
+*Example: 2D multicolour image with PIE excitation*
 
-https://github.com/RobertMolenaar-UT/readPTU_FLIM
+#
 
-Developed and tested on Python 3.7.9, Install wx python 4.0.4 for the file selector app.
+The script is developed and tested on Python 3.7.9, Install:
+
+- wx python 4.0.4 for the file selector app.
+- PicoQuant PTU file reader: https://github.com/RobertMolenaar-UT/readPTU_FLIM
+
 Script is used on a Picoquant MT200 with FLIMBEE laserscanner with 4x SPAD detectors and a multiharp 150.
 
 the main purpose of the MultiChannel script is one can proccess multiple PTU files or a folder with PTU files and get a series Fluorescent multicolor images with minimal user input. Usefull for screening results during imaging and to be used in presentations.
 
-Each single PTU file analysed on:  
-- if it is a 2D  image.
+Scripts features:  
+- File Check, if it is a 2D  image.
 - Autodetects the number of APD channels. 
 - Supports 'PIE' and 'normal' excitation.
 - Features Zstack image projection and FRET efficiency.
 - Common exp file-errors are catched and reported in the end.
 - Output images are stored in a seperate folder.
 
-You do need to define the channels in the initial part of the code:
+Detector Channels need to be configured:
 
                   -                      Ch,   NameLabel,   Coloring,    Gain,  PIE TimeGate,  FRET
 		  
@@ -34,9 +38,9 @@ You do need to define the channels in the initial part of the code:
 3. *Gain*: 	each channel is normalized from [0:1] to the max brightness in the image, use gain value to increase the brightness
 4. *PIE TimeGate*: Contrast can be enhanced by using PIE excitation in the experiment to supress any cross-excitation 
 	- NOTE: LASER fire order is first the longest wavelenght down to shortest wavelenght as last.
-5. if applicable assign FRET 'donor', and 'acceptor' channels and enable *FRET =True*
+5. *FRET*: if applicable assign FRET 'donor', and 'acceptor' channels and enable *FRET =True*
 
-6. Zstack image projection can be made of the selected Z stack files. Set *Zstack=True* and *Plot_OrthogonalProjections=True*
+6. Zstack image projection can be made on multiple selected Z stack files. Set *Zstack=True* and *Plot_OrthogonalProjections=True*
 7. Save Image Intensity [count] as comma separated file *.dat*  Set Save data files = True
 8. PIE TAC ranges are automatically calculated from the *.PTU* header data.
 
@@ -47,7 +51,7 @@ You do need to define the channels in the initial part of the code:
 
 # Usage: 
 
-1. Set the Configuration files according optical setup.
+1. Set the Channel configuration according optical setup.
 2. Read and set all options in the section --- USER input---  upon description.
 3. Run the PiqoQuant-multi_channel_screen.py.
 4. Note the pop-up window in the taskbar and browse and select the PTU files.
@@ -55,10 +59,12 @@ You do need to define the channels in the initial part of the code:
 6. Images and data files are saved in folder /Python_converted_* Username* /
 7. Errors on files are listed in the end, in many cases these are Single Point or cancelled 2D measurements.
 
-Known limitation: For bi-directional scanning, the readPTU_flim needs to be modified, code upon request.
+Known limitation: For bi-directional FLIMBEE scanning, the readPTU_flim needs to be modified, code upon request.
 
 
 
+![alt text](https://github.com/RobertMolenaar-UT/PicoQuant-multi_channel_screen/blob/main/Example-Z-stack-projection_1024.png?raw=true)
+*Example: Z-stack maximum-projectionm with 3 ch PIE excitation* 
 
 
 

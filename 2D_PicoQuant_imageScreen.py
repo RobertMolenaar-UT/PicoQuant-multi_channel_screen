@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 # author: Robert Molenaar email r.molenaar@utwente.nl
 # Release v1.0
-# Date 2021 June 21
+# https://github.com/RobertMolenaar-UT/PicoQuant-multi_channel_screen
+# Date 2021 July 21
 # To be used on PicoQuant PTU files
 # Function: Batchwise multichannel image conversion on Single files an Z stacks.
 

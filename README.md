@@ -1,5 +1,5 @@
 # PicoQuant-multi channel screen
-Batch proccessing that converts PiqoQuant PTU files into fluorescent multicolour images.
+Batch proccessing that converts PicoQuant PTU files into fluorescent multicolour images.
 
 ![alt text](https://github.com/RobertMolenaar-UT/PicoQuant-multi_channel_screen/blob/main/Example_2D_image_1024.png?raw=true)
 *Example: 2D multicolour image with PIE excitation*
@@ -62,6 +62,9 @@ Detector Channels need to be configured:
 
 Known limitation: For bi-directional FLIMBEE scanning, the readPTU_flim needs to be modified, code upon request.
 
+v1.0 July 2021 Robert Molenaar 
+
+
 
 
 ![alt text](https://github.com/RobertMolenaar-UT/PicoQuant-multi_channel_screen/blob/main/Example-Z-stack-projection_1024.png?raw=true)
@@ -104,4 +107,4 @@ The main For-loop proccesses all files sequentially.
 	- For the XY plane the 'mean'or 'max' value is used for the x,y pixel value for each color channel.
 
 
-v1.0 July 2021 Robert Molenaar 
+

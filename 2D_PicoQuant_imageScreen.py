@@ -30,7 +30,7 @@ Config4 = Set_Channel_Info(4,   'Dapi-2'       ,   'Blue'     ,2      ,3 , 'dono
 #File picking
 GUI_MultiPick=True      #Pick multiple files - Set Flase to proccess the full folder
 Zstack=True             #unlocks the 3D stack options
-Default_prompt= r'C:\'  
+Default_prompt= r'C:'  
 
 #Miscellaneous.
 Save_data_files=True            #Write CSV data files with intensity of all channels *.dat

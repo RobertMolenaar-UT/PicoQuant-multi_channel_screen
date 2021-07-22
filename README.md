@@ -104,4 +104,4 @@ The main For-loop proccesses all files sequentially.
 	- For the XY plane the 'mean'or 'max' value is used for the x,y pixel value for each color channel.
 
 
-
+v1.0 July 2021 Robert Molenaar 

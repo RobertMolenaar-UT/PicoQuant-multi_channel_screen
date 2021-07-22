@@ -863,7 +863,9 @@ if Plot_OrthogonalProjections==True and Zstack==True and len(path_select)>=2:
     extentY=[0, ptu_file.head["ImgHdr_PixX"]*ptu_file.head["ImgHdr_PixResol"],Z_section[StripZ_top],Z_section[len(Z_section)-StripZ_coverslip-1]]
     
     fig, ax_3DProject = plt.subplots(figsize=(7, 8.5))
-    
+    rect = fig.patch  #modify background color
+    rect.set_facecolor('whitesmoke')
+
     if len(ch_list)==1:
         ax_3DProject.imshow(Fill_colour(CZxy[:,:,0], ch_list[0].Color), extent=extent)
     elif len(ch_list)==2:    

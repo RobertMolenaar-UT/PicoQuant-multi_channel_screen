@@ -41,14 +41,14 @@ Detector Channels need to be configured:
 5. *FRET*: if applicable assign FRET 'donor', and 'acceptor' channels and enable *FRET =True*
 
 6. Zstack image projection can be made on multiple selected Z stack files. Set *Zstack=True* and *Plot_OrthogonalProjections=True*
-7. Save Image Intensity [count] as comma separated file *.dat*  Set Save data files = True
+7. Save Image Intensity [count] as comma separated file *.dat*  Set *Save_data_files = True*
 8. PIE TAC ranges are automatically calculated from the *.PTU* header data.
 
 
 # Set your MT200 SETUP:
 
 1.  Change the laser lines in order of the SEPIAII rackposition *SEPIA_laser_lines=[638,560,488,405]*. If lasers are in installed in different SEPIAII rack positions assign these in *def Read_laserLines()*  atribute=[200,300,400,500]  #names of the lasers modules in ptu headerfile of rack position [2,3,4,5] 	
-2.  Set the objective full name in Symphotimetime64 application or in the function *Read_objective()
+2.  Set the objective full name in Symphotimetime64 application or in the function *Read_objective()*
 
 # Usage: 
 

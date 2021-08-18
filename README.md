@@ -60,7 +60,11 @@ Detector Channels need to be configured:
 6. Images and data files are saved in folder /Python_converted_* Username* /
 7. Errors on files are listed in the end, in many cases these are Single Point or cancelled 2D measurements.
 
-Known limitation: For bi-directional FLIMBEE scanning, the readPTU_flim needs to be modified, code upon request.
+Known limitations: 
+
+ 1. For bi-directional FLIMBEE scanning, the readPTU_flim needs to be modified, code upon request, modification needed in the readPTU_FLIM code aug '21.
+ 2. Multiframe PTU conversion appears to skip a Frame, modification needed in the readPTU_FLIM code. aug '21
+
 
 v1.0 July 2021 Robert Molenaar 
 

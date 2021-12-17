@@ -629,7 +629,7 @@ for path in path_select:
         
         im2 = axs[0, 1].imshow(CS[:,:,:,Donor_APD_Channel]+CS[:,:,:,Acceptor_APD_Channel], extent=extent)
         if Config_Donor.Gain * Config_Acceptor.Gain != 1 & show_gain_on_Images==True:
-            plt.figtext(0.585,0.54,'Brightness:'+str(ch_list[Donor_APD_Channel].Color+str(ch_list[Donor_APD_Channel].Gain)+'x '+str(ch_list[Acceptor_APD_Channel].Color)+' '+str(ch_list[Acceptor_APD_Channel].Gain)+'x', color='whitesmoke'))
+            plt.figtext(0.585,0.54,'Brightness:'+ch_list[Donor_APD_Channel].Color+str(ch_list[Donor_APD_Channel].Gain)+'x '+ch_list[Acceptor_APD_Channel].Color+' '+str(ch_list[Acceptor_APD_Channel].Gain)+'x', color='whitesmoke')
         axs[0,1].set_title(Config_Donor.Color+': '+Config_Donor.Name+' - '+Config_Acceptor.Color+': '+Config_Acceptor.Name, size=12)
         axs[0,1].set_xlabel('X $\mu$m')
         axs[0,1].set_ylabel('Y $\mu$m')

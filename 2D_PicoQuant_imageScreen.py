@@ -35,8 +35,8 @@ Default_prompt= r'C:'
 #Miscellaneous.
 Save_data_files=True            #Write CSV data files with intensity of all channels *.dat
 show_gain_on_Images=True        #Shows the gain in the image
-shortEndPIEtac=0                #cut a piece from the start TAC ns to supress noise
-shortFrontPIEtac=0              #cut a piece from the start TAC ns to supress noise
+shortEndPIEtac_ns=0                #cut a piece from the start TAC ns to supress noise
+shortFrontPIEtac_ns=0              #cut a piece from the start TAC ns to supress noise
 PieAutoColor=False              #In PIE mode overwrite colour settings of the channel PIE laser x TimeGate give knowledge of correct color
 ShowDefault=True                #Standard user visualizations
 
@@ -414,8 +414,8 @@ for path in path_select:
         # second add the intensity from this Z-pane into the 3D stack (CZ) Z,X,Y,Ch which is raw intensity for the TimeGate
         
         Excitation='PIE-excitation: '+LaserInfo
-        shortEndPIEtac=round(shortEndPIEtac/(ptu_file.head['MeasDesc_Resolution']*1E9)) #ns)
-        shortFrontPIEtac=round(shortFrontPIEtac/(ptu_file.head['MeasDesc_Resolution']*1E9)) #ns)
+        shortEndPIEtac=round(shortEndPIEtac_ns/(ptu_file.head['MeasDesc_Resolution']*1E9)) #ns)
+        shortFrontPIEtac=round(shortFrontPIEtac_ns/(ptu_file.head['MeasDesc_Resolution']*1E9)) #ns)
         PieBaseLen=int(np.trunc(len(flim_data_stack[0,0,0])/len(LaserLines)))
         Time_gate_edges=np.zeros((len(LaserLines), 2))
         i=0

@@ -1,7 +1,7 @@
 # PicoQuant-multi channel screen
 Batch proccessing that converts PicoQuant PTU files into fluorescent multicolour images.
 
-![alt text](https://github.com/RobertMolenaar-UT/PicoQuant-multi_channel_screen/blob/main/Example_2D_image_1024.png?raw=true)
+![BPAE_FluoCells_19_Intensity](https://github.com/user-attachments/assets/6c8b1941-b0e5-41da-8c62-569656d6a37a)
 *Example: 2D multicolour image with PIE excitation*
 
 #
